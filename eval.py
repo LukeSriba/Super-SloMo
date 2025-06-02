@@ -94,9 +94,11 @@ def load_batch(video_in, batch_size, batch, w, h):
         ok, frame = video_in.read()
         if not ok:
             break
+        from PIL import Image
+        
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         frame = Image.fromarray(frame)
-        frame = frame.resize((w, h), Image.ANTIALIAS)
+        frame = frame.resize((w, h), Image.Resampling.LANCZOS)
         frame = frame.convert('RGB')
         frame = trans_forward(frame)
         batch.append(frame)

@@ -92,6 +92,8 @@ def _pil_loader(path, cropArea=None, resizeDim=None, frameFlip=0):
 
     # open path as file to avoid ResourceWarning (https://github.com/python-pillow/Pillow/issues/835)
     with open(path, 'rb') as f:
+        from PIL import Image
+
         img = Image.open(f)
         # Resize image if specified.
         from PIL import Image

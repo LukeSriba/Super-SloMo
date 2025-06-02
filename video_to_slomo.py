@@ -164,7 +164,7 @@ def main():
     flowBackWarp = model.backWarp(videoFrames.dim[0], videoFrames.dim[1], device)
     flowBackWarp = flowBackWarp.to(device)
 
-    dict1 = dict1 = torch.load(args.checkpoint, map_location='cpu', weights_only=False)
+    dict1 = torch.load(args.checkpoint, map_location='cpu', weights_only=False)
     ArbTimeFlowIntrp.load_state_dict(dict1['state_dictAT'])
     flowComp.load_state_dict(dict1['state_dictFC'])
 
